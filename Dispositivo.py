@@ -28,8 +28,8 @@ client.loop_start()
 
 #Comportamento do Hardware
 while True:
-    client.publish(f'v1/{user}/things/{client_id}/data/0', Hal.getTemperatura())
-    client.publish(f'v1/{user}/things/{client_id}/data/1', Hal.getUmidade())
+    client.publish(f'v1/{user}/things/{client_id}/data/0', f'temp,c={Hal.getTemperatura()}')
+    client.publish(f'v1/{user}/things/{client_id}/data/1', f'rel_hum,p={Hal.getUmidade()}')
 
     Hal.tickTemperatura()
     time.sleep(1)
